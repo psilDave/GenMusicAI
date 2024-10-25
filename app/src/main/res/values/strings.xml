@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">GenMusicAI</string>
+    <string name="descricao_logo_do_app">"Logo do GenMusicAI. Um cérebro laranja em cima de um disco azul com notas músicais saindo dele. "</string>
+    <string name="main_screen_navigation_item_music">Músicas</string>
+    <string name="main_screen_navigation_item_settings">Configurações</string>
+    <string name="main_screen_search_bar_hint">Busque uma conversa</string>
+    <string name="music_chat_back_button_description">Voltar</string>
+    <string name="music_chat_text_field_label">Crie sua música descrevendo-a em inglês</string>
+    <string name="settings_screen_ia_model_item_title">Modelo de IA</string>
+    <string name="settings_screen_about_item_title">Sobre</string>
+    <string name="settings_screen_topbar_title">Configurações</string>
+    <string name="settings_screen_general_title">Geral</string>
+    <string name="ia_model_screen_topbar_title">Modelo de IA</string>
+    <string name="ia_model_screen_suno_item_title">Suno</string>
+    <string name="ia_model_screen_mubert_item_title">Mubert</string>
+    <string name="ia_model_screen_description">Escolha um modelo de IA online para gerar música a partir do seu texto.</string>
+    <string name="about_bottom_sheet_title">Sobre</string>
+    <string name="about_bottom_sheet_description">GenMusicAI é um aplicativo inovador que transforma descrições textuais em músicas, utilizando os mais avançados modelos de IA generativa disponíveis no mercado. Com ele, qualquer usuário pode criar composições musicais de forma intuitiva e personalizada, explorando a criatividade através da inteligência artificial.</string>
+    <string name="alert_dialog_music_chat_confirm_button">Excluir</string>
+    <string name="alert_dialog_music_chat_title">Excluir conversa?</string>
+    <string name="alert_dialog_music_chat_description">Esta conversa será removida do seu dispositivo. Esta ação não pode ser desfeita.</string>
+    <string name="alert_dialog_music_chat_dimiss_button">Cancelar</string>
+</resources>
