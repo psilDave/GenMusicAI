@@ -1,4 +1,4 @@
-package com.psil.genmusicai.ui.compose
+package com.psil.genmusicai.ui.compose.utils
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.psil.genmusicai.R
-import com.psil.genmusicai.navigation.data.GenMusicAIScreens
+import com.psil.genmusicai.ui.navigation.data.GenMusicAIScreens
 
 @Composable
 fun GenMusicAINavigationBar(

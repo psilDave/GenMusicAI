@@ -1,4 +1,4 @@
-package com.psil.genmusicai.navigation.data
+package com.psil.genmusicai.ui.navigation.data
 
 enum class GenMusicAIScreens {
     SPLASH,

@@ -26,8 +26,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.psil.genmusicai.R
-import com.psil.genmusicai.navigation.data.GenMusicAIScreens
-import com.psil.genmusicai.ui.compose.GenMusicAINavigationBar
+import com.psil.genmusicai.ui.navigation.data.GenMusicAIScreens
+import com.psil.genmusicai.ui.compose.utils.GenMusicAINavigationBar
 import com.psil.genmusicai.ui.compose.bottomsheet.ShowAboutBottomSheet
 import com.psil.genmusicai.ui.theme.GenMusicAITheme
 
@@ -39,7 +39,7 @@ fun SettingsScreen(
     onClickInIAModel: () -> Unit
 ) {
 
-    var selectedTab by rememberSaveable { mutableStateOf(GenMusicAIScreens.SETTINGS.name) }
+    val selectedTab by rememberSaveable { mutableStateOf(GenMusicAIScreens.SETTINGS.name) }
     var showBottomSheet by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 

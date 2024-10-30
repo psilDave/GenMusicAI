@@ -1,4 +1,4 @@
-package com.psil.genmusicai.ui.compose
+package com.psil.genmusicai.ui.compose.utils
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

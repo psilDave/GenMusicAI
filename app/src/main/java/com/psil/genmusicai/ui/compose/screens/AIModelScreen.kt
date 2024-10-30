@@ -25,7 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.psil.genmusicai.R
-import com.psil.genmusicai.ui.compose.GenMusicAITopBar
+import com.psil.genmusicai.ui.compose.utils.GenMusicAITopBar
 import com.psil.genmusicai.ui.data.iAModelList
 import com.psil.genmusicai.ui.theme.GenMusicAITheme
 

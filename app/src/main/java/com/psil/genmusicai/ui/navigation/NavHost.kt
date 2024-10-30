@@ -1,9 +1,10 @@
-package com.psil.genmusicai.navigation.data
+package com.psil.genmusicai.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.psil.genmusicai.ui.navigation.data.GenMusicAIScreens
 import com.psil.genmusicai.ui.compose.screens.AIModelScreen
 import com.psil.genmusicai.ui.compose.screens.MainScreen
 import com.psil.genmusicai.ui.compose.screens.MusicChatScreen
