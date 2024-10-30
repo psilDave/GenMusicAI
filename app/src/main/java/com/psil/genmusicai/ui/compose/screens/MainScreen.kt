@@ -1,4 +1,4 @@
-package com.psil.genmusicai.ui.compose
+package com.psil.genmusicai.ui.compose.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,15 +9,13 @@ import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -25,14 +23,19 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.psil.genmusicai.R
-import com.psil.genmusicai.navigation.data.mainScreenButtonNavigationList
+import com.psil.genmusicai.navigation.data.GenMusicAIScreens
+import com.psil.genmusicai.ui.compose.GenMusicAINavigationBar
 import com.psil.genmusicai.ui.theme.GenMusicAITheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    onClickInMusicTab: () -> Unit,
+    onCLickInSettingsTab: () -> Unit,
+    onClickFloatingButton: () -> Unit
+) {
 
-    var selectedTabIndex by rememberSaveable { mutableIntStateOf(0) }
+    var selectedTab by rememberSaveable { mutableStateOf(GenMusicAIScreens.MAIN.name) }
 
     Scaffold(
         topBar = {
@@ -55,26 +58,10 @@ fun MainScreen() {
                 TODO("Mostrar pesquisas feitas anteriormente como sugestão de pesquisa")
             }
         }, bottomBar = {
-            NavigationBar {
-                mainScreenButtonNavigationList.forEachIndexed { index, mainScreenButtonNavigationItem ->
-                    NavigationBarItem(
-                        selected = selectedTabIndex == index,
-                        onClick = {
-                            selectedTabIndex = index
-                        },
-                        icon = {
-                            Icon(
-                                imageVector = if (index == selectedTabIndex) mainScreenButtonNavigationItem.selectedIcon
-                                else mainScreenButtonNavigationItem.unselectedIcon,
-                                contentDescription = null
-                            )
+            GenMusicAINavigationBar(selectedTab, onClickInMusicTab, onCLickInSettingsTab)
 
-                        },
-                        label = { Text(stringResource(mainScreenButtonNavigationItem.title)) })
-                }
-            }
         }, floatingActionButton = {
-            FloatingActionButton(onClick = { /*TODO*/ }) {
+            FloatingActionButton(onClick = { onClickFloatingButton() }) {
                 Icon(imageVector = Icons.Rounded.Edit, contentDescription = null)
             }
 
@@ -89,6 +76,6 @@ fun MainScreen() {
 @Composable
 fun MainScreenPreview() {
     GenMusicAITheme {
-        MainScreen()
+        MainScreen({}, {}, {})
     }
 }

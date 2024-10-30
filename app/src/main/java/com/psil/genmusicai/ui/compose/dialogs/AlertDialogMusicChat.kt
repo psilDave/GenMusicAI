@@ -1,4 +1,4 @@
-package com.psil.genmusicai.ui.compose
+package com.psil.genmusicai.ui.compose.dialogs
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete

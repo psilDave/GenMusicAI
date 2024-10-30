@@ -4,12 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.psil.genmusicai.ui.compose.MainScreen
-import com.psil.genmusicai.ui.compose.MusicChatScreen
+import androidx.navigation.compose.rememberNavController
+import com.psil.genmusicai.navigation.data.GenMusicAINavHost
+import com.psil.genmusicai.navigation.data.GenMusicAIScreens
 import com.psil.genmusicai.ui.theme.GenMusicAITheme
 
 class MainActivity : ComponentActivity() {
@@ -18,24 +18,27 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GenMusicAITheme {
-                MusicChatScreen()
+                GenMusicAIApp()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun GenMusicAIApp(modifier: Modifier = Modifier) {
+    val navController = rememberNavController()
+    GenMusicAINavHost(
+        navController = navController,
+        startDestination = GenMusicAIScreens.SPLASH.name
     )
+
+
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun GenMusicAIAppPreview() {
     GenMusicAITheme {
-        Greeting("Android")
+        GenMusicAIApp()
     }
 }

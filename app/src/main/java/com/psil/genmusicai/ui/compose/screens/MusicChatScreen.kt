@@ -1,4 +1,4 @@
-package com.psil.genmusicai.ui.compose
+package com.psil.genmusicai.ui.compose.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -9,15 +9,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Send
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,31 +24,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.psil.genmusicai.R
+import com.psil.genmusicai.ui.compose.GenMusicAITopBar
 import com.psil.genmusicai.ui.theme.GenMusicAITheme
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MusicChatScreen() {
+fun MusicChatScreen(onBackButtonClick: () -> Unit) {
 
     var currentMessage by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(text = "Nova música") },
-                navigationIcon = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(
-                                R.string.music_chat_back_button_description
-                            )
-                        )
-                    }
-                }
-            )
+            GenMusicAITopBar(
+                title = R.string.music_chat_top_bar_title,
+                description = R.string.music_chat_back_button_description
+            ) {
+                onBackButtonClick()
+            }
         }
     ) { innerPadding ->
         Box(Modifier.padding(innerPadding)) {
@@ -63,7 +53,8 @@ fun MusicChatScreen() {
             Row(
                 Modifier
                     .align(Alignment.BottomCenter)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 OutlinedTextField(
@@ -84,10 +75,11 @@ fun MusicChatScreen() {
     }
 }
 
+
 @Composable
 @Preview(showBackground = true)
 fun MusicChatScreenPreview() {
     GenMusicAITheme {
-        MusicChatScreen()
+        MusicChatScreen {}
     }
 }
