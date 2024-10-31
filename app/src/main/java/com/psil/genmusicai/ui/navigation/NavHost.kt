@@ -12,7 +12,7 @@ import com.psil.genmusicai.ui.compose.screens.SettingsScreen
 import com.psil.genmusicai.ui.compose.screens.SplashScreen
 
 @Composable
-fun GenMusicAINavHost(navController: NavHostController, startDestination: String) {
+fun GenMusicAINavHostGraph(navController: NavHostController, startDestination: String) {
     return NavHost(navController = navController, startDestination = startDestination) {
 
         composable(GenMusicAIScreens.SPLASH.name) {
@@ -32,6 +32,9 @@ fun GenMusicAINavHost(navController: NavHostController, startDestination: String
                     navController.navigate(GenMusicAIScreens.SETTINGS.name)
                 },
                 onClickFloatingButton = {
+                    navController.navigate(GenMusicAIScreens.MUSIC_CHAT.name)
+                },
+                onClickInMusicItemList = {
                     navController.navigate(GenMusicAIScreens.MUSIC_CHAT.name)
                 }
             )
@@ -57,8 +60,8 @@ fun GenMusicAINavHost(navController: NavHostController, startDestination: String
             )
         }
 
-        composable(GenMusicAIScreens.MUSIC_CHAT.name) {
-            MusicChatScreen(onBackButtonClick = { navController.navigateUp() }
+        composable(GenMusicAIScreens.MUSIC_CHAT.name, arguments = listOf()) {
+            MusicChatScreen(onBackButtonClick = { navController.navigateUp()}
             )
         }
     }

@@ -8,10 +8,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.psil.genmusicai.ui.navigation.GenMusicAINavHost
+import com.psil.genmusicai.ui.navigation.GenMusicAINavHostGraph
 import com.psil.genmusicai.ui.navigation.data.GenMusicAIScreens
 import com.psil.genmusicai.ui.theme.GenMusicAITheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class MainActivity : ComponentActivity() {
 fun GenMusicAIApp(modifier: Modifier = Modifier) {
 
     val navController = rememberNavController()
-    GenMusicAINavHost(
+    GenMusicAINavHostGraph(
         navController = navController,
         startDestination = GenMusicAIScreens.SPLASH.name
     )
