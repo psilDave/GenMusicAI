@@ -76,7 +76,14 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.androidx.material3.win.size.clazz)
     implementation(libs.androidx.material3.adaptive.navigation.suite)
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.hilt.android.compiler)
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.coil3.coil.compose)
+    implementation(libs.coil.network.okhttp)
 }

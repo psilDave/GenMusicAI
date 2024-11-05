@@ -26,7 +26,7 @@ class MainScreenViewModel @Inject constructor() : ViewModel() {
                 Log.e("GenMusicAI", "Erro ao resgatar as músicas armazenadas no banco de dados")
             }
         }
-    }
+    } 
 
     fun searchChatMusicInDB(searchQuery: String) = viewModelScope.launch {
 

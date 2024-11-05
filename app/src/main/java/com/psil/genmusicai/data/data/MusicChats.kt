@@ -1,4 +1,4 @@
-package com.psil.genmusicai.data
+package com.psil.genmusicai.data.data
 
 data class MusicChats(
     val title: String = "",
