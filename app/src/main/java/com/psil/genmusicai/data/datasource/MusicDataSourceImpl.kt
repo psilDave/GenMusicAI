@@ -24,4 +24,15 @@ class MusicDataSourceImpl @Inject constructor(retrofit: Retrofit.Builder) :
             Result.failure(e)
         }
     }
+
+    override suspend fun getMusicInformation(ids: String): Result<List<MusicResponse>> {
+        return try {
+            val response = musicApiService.getMusicInformation(ids)
+            Log.d("GenMusicAI", "Music info response: $response")
+            Result.success(response)
+        } catch (e: Exception) {
+            Log.e("GenMusicAi", "Music info request falhou: ${e.message}")
+            Result.failure(e)
+        }
+    }
 }

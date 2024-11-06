@@ -10,4 +10,9 @@ class MusicRepositoryImpl @Inject constructor(private val musicDataSource: Music
     override suspend fun generateMusic(prompt: String): Result<List<MusicResponse>> {
         return musicDataSource.generateMusic(prompt)
     }
+
+    override suspend fun getMusicInformation(ids: String): Result<List<MusicResponse>> {
+        return musicDataSource.getMusicInformation(ids)
+    }
+
 }

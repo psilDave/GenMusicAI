@@ -7,6 +7,7 @@ import com.psil.genmusicai.data.data.MusicResponse
 import com.psil.genmusicai.data.repository.MusicRepository
 import com.psil.genmusicai.ui.data.ChatMessage
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -29,20 +30,44 @@ class MusicChatScreenViewModel @Inject constructor(private val repository: Music
 
         result.fold(
             onSuccess = { musicResponseList: List<MusicResponse> ->
-                setLoadingAnimationState()
-                val formattedMusicResponse = musicResponseList.first().getFormattedMessage()
-                _messages.value += ChatMessage(formattedMusicResponse, false)
+                val id = musicResponseList.first().id
+                checkMusicStatus(id, onFailure)
             },
 
             onFailure = {
-                setLoadingAnimationState()
+                removeLoadingAnimationState()
                 onFailure()
                 Log.e("GenMusicAI", "Erro ao gerar a música:${it.localizedMessage}")
             }
         )
     }
 
-    private fun setLoadingAnimationState() {
+    private fun checkMusicStatus(id: String, onFailure: () -> Unit) = viewModelScope.launch {
+
+        repeat(30) {
+
+            val result = repository.getMusicInformation(id)
+            result.fold(
+                onSuccess = { response ->
+                    val musicResponse = response.first()
+                    if (musicResponse.status == "streaming") {
+                        removeLoadingAnimationState()
+                        val formattedMusic = musicResponse.getFormattedMessage()
+                        _messages.value += ChatMessage(formattedMusic, false)
+                        return@launch
+                    }
+                },
+                onFailure = {
+                    Log.e("GenMusicAI", "Erro ao verificar status: ${it.localizedMessage}")
+                    onFailure()
+                }
+            )
+            delay(5000L)
+        }
+        removeLoadingAnimationState()
+    }
+
+    private fun removeLoadingAnimationState() {
         _messages.value -= ChatMessage(content = "...", isUserMessage = false)
     }
 

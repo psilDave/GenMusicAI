@@ -28,7 +28,7 @@ data class MusicResponse(
     @SerializedName("title")
     val title: String,
     @SerializedName("duration")
-    val duration: Int,
+    val duration: Float,
     @SerializedName("type")
     val type: String
 ) {

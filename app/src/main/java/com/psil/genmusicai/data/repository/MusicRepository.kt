@@ -5,4 +5,8 @@ import com.psil.genmusicai.data.data.MusicResponse
 interface MusicRepository {
 
     suspend fun generateMusic(prompt: String): Result<List<MusicResponse>>
+
+    suspend fun getMusicInformation(ids: String): Result<List<MusicResponse>>
+
+
 }

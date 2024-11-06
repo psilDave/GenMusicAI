@@ -9,7 +9,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -63,7 +66,11 @@ fun MusicChatScreen(onBackButtonClick: () -> Unit) {
             }
         }
     ) { innerPadding ->
-        Box(Modifier.padding(innerPadding)) {
+        Box(
+            Modifier
+                .padding(innerPadding)
+                .imePadding()
+        ) {
 
             LazyColumn(
                 modifier = Modifier
@@ -73,13 +80,24 @@ fun MusicChatScreen(onBackButtonClick: () -> Unit) {
                 items(items = messages) { message ->
                     Box(modifier = Modifier.fillMaxWidth()) {
                         if (message.isUserMessage) {
-                            UserChatItem(message, Modifier.align(Alignment.CenterEnd))
+                            UserChatItem(
+                                message,
+                                Modifier
+                                    .align(Alignment.CenterEnd)
+                                    .padding(end = 12.dp, top = 8.dp)
+                            )
                         } else if (message.content == "...") {
-                            LoadingChatItem(modifier = Modifier.align(Alignment.CenterStart))
+                            LoadingChatItem(
+                                modifier = Modifier
+                                    .align(Alignment.CenterStart)
+                                    .padding(start = 12.dp, top = 8.dp)
+                            )
                         } else {
                             IAModelChatItem(
                                 message,
-                                modifier = Modifier.align(Alignment.CenterStart)
+                                modifier = Modifier
+                                    .align(Alignment.CenterStart)
+                                    .padding(start = 12.dp, top = 8.dp)
                             )
                         }
                     }
@@ -143,7 +161,8 @@ fun IAModelChatItem(message: ChatMessage, modifier: Modifier) {
                 placeholder = painterResource(id = R.drawable.settings_screen_about_icon),
                 contentDescription = "Imagem gerada",
                 modifier = Modifier
-                    .wrapContentSize()
+                    .width(300.dp)
+                    .fillMaxWidth()
             )
             Text(text = title.toString())
         }
@@ -156,7 +175,8 @@ fun UserChatItem(message: ChatMessage, modifier: Modifier) {
         Text(
             text = message.content, Modifier
                 .padding(8.dp)
-                .wrapContentSize()
+                .width(300.dp)
+                .wrapContentHeight()
         )
     }
 }

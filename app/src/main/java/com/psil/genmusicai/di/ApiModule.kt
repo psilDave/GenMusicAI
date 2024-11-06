@@ -1,6 +1,5 @@
 package com.psil.genmusicai.di
 
-import com.psil.genmusicai.data.authenticator.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +16,7 @@ object ApiModule {
     @Provides
     fun providesRetrofit(okHttpClientBuilder: OkHttpClient.Builder): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl("https://api.aimlapi.com/")
+            .baseUrl("https://suno-api-646p.vercel.app/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(
                 okHttpClientBuilder.build()
@@ -27,9 +26,9 @@ object ApiModule {
     @Provides
     fun providesOkHttpClient(): OkHttpClient.Builder {
         return OkHttpClient.Builder()
-            .addInterceptor(AuthInterceptor())
-            .connectTimeout(5, TimeUnit.MINUTES)
-            .readTimeout(5, TimeUnit.MINUTES)
-            .writeTimeout(5, TimeUnit.MINUTES)
+            .connectTimeout(10, TimeUnit.MINUTES)
+            .callTimeout(10, TimeUnit.MINUTES)
+            .readTimeout(10, TimeUnit.MINUTES)
+            .writeTimeout(10, TimeUnit.MINUTES)
     }
 }

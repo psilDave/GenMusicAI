@@ -5,7 +5,7 @@
     <string name="main_screen_navigation_item_settings">Configurações</string>
     <string name="main_screen_search_bar_hint">Busque uma conversa</string>
     <string name="music_chat_back_button_description">Voltar</string>
-    <string name="music_chat_text_field_label">Crie sua música descrevendo-a em inglês</string>
+    <string name="music_chat_text_field_label">Crie sua música</string>
     <string name="settings_screen_ia_model_item_title">Modelo de IA</string>
     <string name="settings_screen_about_item_title">Sobre</string>
     <string name="settings_screen_topbar_title">Configurações</string>

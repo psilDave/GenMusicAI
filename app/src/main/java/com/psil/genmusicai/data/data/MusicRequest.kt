@@ -8,5 +8,5 @@ data class MusicRequest(
     @SerializedName("make_instrumental")
     val makeInstrumental: Boolean = false,
     @SerializedName("wait_audio")
-    val waitAudio: Boolean = true
+    val waitAudio: Boolean = false
 )
