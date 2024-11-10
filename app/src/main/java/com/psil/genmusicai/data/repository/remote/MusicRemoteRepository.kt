@@ -1,8 +1,8 @@
-package com.psil.genmusicai.data.repository
+package com.psil.genmusicai.data.repository.remote
 
 import com.psil.genmusicai.data.data.MusicResponse
 
-interface MusicRepository {
+interface MusicRemoteRepository {
 
     suspend fun generateMusic(prompt: String): Result<List<MusicResponse>>
 

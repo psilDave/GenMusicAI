@@ -34,7 +34,7 @@ fun AIModelScreen(onBackButtonClick: () -> Unit) {
     Scaffold(
         topBar = {
             GenMusicAITopBar(
-                title = R.string.ia_model_screen_topbar_title,
+                title = stringResource(R.string.ia_model_screen_topbar_title),
                 description = R.string.ia_model_screen_description
             ) {
                 onBackButtonClick()

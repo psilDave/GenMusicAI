@@ -1,8 +1,11 @@
 package com.psil.genmusicai.di
 
-import com.psil.genmusicai.data.datasource.MusicDataSource
-import com.psil.genmusicai.data.repository.MusicRepository
-import com.psil.genmusicai.data.repository.MusicRepositoryImpl
+import com.psil.genmusicai.data.dao.MusicChatDao
+import com.psil.genmusicai.data.datasource.remote.MusicRemoteDataSource
+import com.psil.genmusicai.data.repository.local.MusicChatRepository
+import com.psil.genmusicai.data.repository.local.MusicChatRepositoryImpl
+import com.psil.genmusicai.data.repository.remote.MusicRemoteRepository
+import com.psil.genmusicai.data.repository.remote.MusicRemoteRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,8 +16,13 @@ import dagger.hilt.android.components.ViewModelComponent
 object UIModule {
 
     @Provides
-    fun providesMusicRepository(musicDataSource: MusicDataSource): MusicRepository {
-        return MusicRepositoryImpl(musicDataSource)
+    fun providesMusicRemoteRepository(musicRemoteDataSource: MusicRemoteDataSource): MusicRemoteRepository {
+        return MusicRemoteRepositoryImpl(musicRemoteDataSource)
+    }
+
+    @Provides
+    fun providesMusicChatRepository(musicChatDao: MusicChatDao): MusicChatRepository {
+        return MusicChatRepositoryImpl(musicChatDao)
     }
 
 

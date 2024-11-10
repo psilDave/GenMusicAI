@@ -1,15 +1,15 @@
-package com.psil.genmusicai.data.datasource
+package com.psil.genmusicai.data.datasource.remote
 
 import android.util.Log
 import com.psil.genmusicai.data.data.MusicRequest
 import com.psil.genmusicai.data.data.MusicResponse
-import com.psil.genmusicai.data.repository.MusicApiService
+import com.psil.genmusicai.data.repository.remote.MusicApiService
 import retrofit2.Retrofit
 import javax.inject.Inject
 import kotlin.Result
 
-class MusicDataSourceImpl @Inject constructor(retrofit: Retrofit.Builder) :
-    MusicDataSource {
+class MusicRemoteDataSourceImpl @Inject constructor(retrofit: Retrofit.Builder) :
+    MusicRemoteDataSource {
 
     private val musicApiService = retrofit.build().create(MusicApiService::class.java)
 

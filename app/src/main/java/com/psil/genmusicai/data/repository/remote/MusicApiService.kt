@@ -1,4 +1,4 @@
-package com.psil.genmusicai.data.repository
+package com.psil.genmusicai.data.repository.remote
 
 import com.psil.genmusicai.data.data.MusicRequest
 import com.psil.genmusicai.data.data.MusicResponse

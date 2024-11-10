@@ -26,9 +26,9 @@ object ApiModule {
     @Provides
     fun providesOkHttpClient(): OkHttpClient.Builder {
         return OkHttpClient.Builder()
-            .connectTimeout(10, TimeUnit.MINUTES)
-            .callTimeout(10, TimeUnit.MINUTES)
-            .readTimeout(10, TimeUnit.MINUTES)
-            .writeTimeout(10, TimeUnit.MINUTES)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .callTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
     }
 }

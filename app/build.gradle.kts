@@ -86,4 +86,11 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.coil3.coil.compose)
     implementation(libs.coil.network.okhttp)
+
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
+    implementation(libs.kotlinx.datetime)
 }
