@@ -4,11 +4,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.psil.genmusicai.R
@@ -32,7 +30,6 @@ fun AlertDialogMusicChat(
             },
             confirmButton = {
                 Button(
-                    colors = ButtonDefaults.buttonColors(Color.Transparent),
                     onClick = {
                         onConfirm()
                     }) {
@@ -41,7 +38,6 @@ fun AlertDialogMusicChat(
             },
             dismissButton = {
                 Button(
-                    colors = ButtonDefaults.buttonColors(Color.Transparent),
                     onClick = {
                         onDismiss()
                     }) {

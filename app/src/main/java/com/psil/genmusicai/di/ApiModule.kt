@@ -16,7 +16,7 @@ object ApiModule {
     @Provides
     fun providesRetrofit(okHttpClientBuilder: OkHttpClient.Builder): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl("https://suno-api-646p.vercel.app/api/")
+            .baseUrl(TODO("retirei a url para não vazar a chave da API"))
             .addConverterFactory(GsonConverterFactory.create())
             .client(
                 okHttpClientBuilder.build()
