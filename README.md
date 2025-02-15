@@ -2,7 +2,7 @@
 
 ## About the Project
 This repository contains the source code and documentation for the proof of concept (PoC) of **GenMusicAI**, an application developed to generate music from textual descriptions using artificial intelligence. 
-The project is part of the **Final Year Project (TCC)** by **Davi Pereira da Silva**, presented at the **University of Campinas (UNICAMP)** in 2024.
+The project is part of the **Final Course Work (TCC)** by **Davi Pereira da Silva**, presented at the **University of Campinas (UNICAMP)** in 2024.
 
 ## Objective
 The main objective of GenMusicAI allows users to create music from textual prompts directly on Android devices.
